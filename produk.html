@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk - Pondok Rawatan Nusantara</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAF6FF; /* Soft Blue Background */
+            color: #002B5B; /* Dark Blue Text */
+        }
+
+        header {
+            background-color: #004C99; /* Deep Blue */
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        header img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366; /* Dark Navy */
+        }
+
+        nav a {
+            color: #FFFFFF; /* White */
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #87CEEB; /* Light Blue */
+            color: #003366; /* Dark Navy */
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .content h2 {
+            color: #004C99; /* Deep Blue */
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-item h3 {
+            color: #004C99; /* Deep Blue */
+        }
+
+        .product-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .product-item .price {
+            font-size: 18px;
+            color: #004C99; /* Deep Blue */
+            font-weight: bold;
+        }
+
+        .product-item input[type="number"] {
+            width: 60px;
+            margin-top: 10px;
+            padding: 5px;
+        }
+
+        .product-item button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #004C99; /* Deep Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-item button:hover {
+            background-color: #87CEEB; /* Light Blue Hover */
+        }
+
+        .checkout-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .checkout-section button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #004C99; /* Deep Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-section button:hover {
+            background-color: #87CEEB; /* Light Blue Hover */
+        }
+
+        footer {
+            text-align: center;
+            background-color: #003366; /* Dark Navy */
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="D:\SEM INTERN PBU\websitePRN\logo.png" alt="Logo Pondok Rawatan Nusantara">
+        <h1>Produk Kami</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="homepage.html">Laman Utama</a>
+        <a href="servis.html">Servis Rawatan</a>
+        <a href="produk.html">Produk</a>
+        <a href="info.html">Informasi</a>
+        <a href="contact.html">Hubungi Kami</a>
+    </nav>
+
+    <!-- Content -->
+    <div class="content">
+        <h2>Produk Tradisional</h2>
+
+        <!-- Product Grid -->
+        <div class="product-grid">
+            <!-- Example Product 1 -->
+            <div class="product-item">
+                <img src="D:\SEM INTERN PBU\websitePRN\product1.jpg" alt="Minyak Herba">
+                <h3>Minyak Herba</h3>
+                <p>Minyak herba tradisional untuk urutan dan kesihatan fizikal.</p>
+                <p class="price">RM20.00</p>
+                <label for="quantity1">Kuantiti:</label>
+                <input type="number" id="quantity1" name="quantity1" min="1" value="1">
+                <button onclick="addToCart('Minyak Herba', 20, document.getElementById('quantity1').value)">Tambah ke Troli</button>
+            </div>
+
+            <!-- Example Product 2 -->
+            <div class="product-item">
+                <img src="D:\SEM INTERN PBU\websitePRN\product2.jpg" alt="Teh Herba">
+                <h3>Teh Herba</h3>
+                <p>Teh herba untuk kesihatan dalaman dan peredaran darah.</p>
+                <p class="price">RM15.00</p>
+                <label for="quantity2">Kuantiti:</label>
+                <input type="number" id="quantity2" name="quantity2" min="1" value="1">
+                <button onclick="addToCart('Teh Herba', 15, document.getElementById('quantity2').value)">Tambah ke Troli</button>
+            </div>
+
+            <!-- Add more products here -->
+        </div>
+
+        <!-- Checkout Section -->
+        <div class="checkout-section">
+            <h3>Troli Anda</h3>
+            <p id="cart-details">Tiada item dalam troli.</p>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Pondok Rawatan Nusantara. All rights reserved.
+    </footer>
+
+    <script>
+        const cart = [];
+
+        function addToCart(product, price, quantity) {
+            cart.push({ product, price, quantity: parseInt(quantity) });
+            updateCartDetails();
+        }
+
+        function updateCartDetails() {
+            const cartDetails = cart.map(
+                item => `${item.product} (RM${item.price} x ${item.quantity})`
+            ).join(', ');
+            document.getElementById('cart-details').textContent = cartDetails || 'Tiada item dalam troli.';
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Troli anda kosong!');
+            } else {
+                alert('Pembelian berjaya! Terima kasih.');
+                // Clear the cart after checkout
+                cart.length = 0;
+                updateCartDetails();
+            }
+        }
+    </script>
+</body>
+</html>
