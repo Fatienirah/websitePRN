@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maklumat yang Dihantar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #EAF6FF;
+            color: #002B5B;
+        }
+        h1 {
+            text-align: center;
+            color: #004C99;
+        }
+        .form-data {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #F9F9F9;
+            border: 1px solid #CCC;
+            border-radius: 10px;
+        }
+        .form-data p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maklumat yang Dihantar</h1>
+    <div class="form-data" id="formDataDisplay"></div>
+
+    <script>
+        // Retrieve form data from sessionStorage
+        const formData = JSON.parse(sessionStorage.getItem("formData"));
+
+        if (formData) {
+            document.getElementById("formDataDisplay").innerHTML = `
+                <p><strong>Nama:</strong> ${formData.name}</p>
+                <p><strong>Nombor Telefon:</strong> ${formData.phone}</p>
+                <p><strong>Email:</strong> ${formData.email}</p>
+                <p><strong>Mesej:</strong> ${formData.message}</p>
+            `;
+        } else {
+            document.getElementById("formDataDisplay").innerHTML = `
+                <p>Tiada data tersedia. Sila isikan borang terlebih dahulu.</p>
+            `;
+        }
+    </script>
+</body>
+</html>

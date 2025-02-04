@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Pondok Rawatan Nusantara</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAF6FF; /* Soft Blue Background */
+            color: #002B5B; /* Dark Blue Text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .logout-container {
+            text-align: center;
+            background-color: #FFFFFF;
+            border: 2px solid #004C99; /* Deep Blue Border */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #004C99; /* Deep Blue */
+        }
+
+        p {
+            margin: 15px 0;
+            color: #003366; /* Dark Navy */
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #004C99; /* Deep Blue */
+            color: #FFFFFF; /* White */
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #87CEEB; /* Light Blue */
+            color: #003366; /* Dark Navy */
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <h1>Anda Telah Berjaya Log Keluar</h1>
+        <p>Terima kasih kerana memilih Pondok Rawatan Nusantara</p>
+        <div class="button-container">
+            <!-- Return to homepage -->
+            <a href="homepage.html">
+                <button>Ke Laman Utama</button>
+            </a>
+            <!-- Redirect to login page -->
+            <a href="login.html">
+                <button>Log Masuk Semula</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

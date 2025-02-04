@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troli - Pondok Rawatan Nusantara</title>
+    <style>
+        /* Consistent Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EAF6FF; /* Soft Blue Background */
+            color: #002B5B; /* Dark Blue Text */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004C99; /* Deep Blue */
+            color: white;
+            text-align: center;
+            padding: 
+            20px;
+        }
+        header img{
+            max-width: 150px;
+            height: auto;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366; /* Dark Navy */
+        }
+        nav a {
+            color: #FFFFFF; /* White */
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #87CEEB; /* Light Blue */
+            color: #003366; /* Dark Navy */
+        }
+        nav a.active {
+            background-color: #87CEEB;
+            color: #003366;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #004C99;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #004C99; /* Deep Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #87CEEB; /* Light Blue */
+        }
+        footer {
+            text-align: center;
+            background-color: #003366; /* Dark Navy */
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="D:\SEM INTERN PBU\websitePRN\logo.png" alt="Logo Pondok Rawatan Nusantara">
+        <h1>Troli Anda</h1>
+    </header>
+
+    <!-- Navigation Panel -->
+    <nav>
+        <a href="homepage.html">Laman Utama</a>
+        <a href="servis.html">Rawatan</a>
+        <a href="produk.html">Produk</a>
+        <a href="troli.html" class="active">Troli</a>
+        <a href="info.html">Informasi</a>
+        <a href="contact.html">Hubungi Kami</a>
+    </nav>
+
+    <!-- Content -->
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Produk</th>
+                    <th>Harga</th>
+                    <th>Kuantiti</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Items will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <h3 id="total-price">Jumlah Keseluruhan: RM0.00</h3>
+        <button onclick="clearCart()">Kosongkan Troli</button>
+    </div>
+
+    <footer>
+        &copy; 2025 Pondok Rawatan Nusantara. All rights reserved.
+    </footer>
+
+    <script>
+        // Load and display cart items
+        function loadCart() {
+            const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            let totalPrice = 0;
+
+            if (storedCart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <tr>
+                        <td colspan="4">Tiada item dalam troli.</td>
+                    </tr>
+                `;
+            } else {
+                cartItemsContainer.innerHTML = storedCart.map(item => {
+                    const itemTotal = item.price * item.quantity;
+                    totalPrice += itemTotal;
+                    return `
+                        <tr>
+                            <td>${item.product}</td>
+                            <td>RM${item.price.toFixed(2)}</td>
+                            <td>${item.quantity}</td>
+                            <td>RM${itemTotal.toFixed(2)}</td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            document.getElementById('total-price').textContent = `Jumlah Keseluruhan: RM${totalPrice.toFixed(2)}`;
+        }
+
+        // Clear the cart
+        function clearCart() {
+            if (confirm('Adakah anda pasti mahu kosongkan troli?')) {
+                localStorage.removeItem('cart');
+                loadCart();
+                alert('Troli berjaya dikosongkan.');
+            }
+        }
+        
+        // Initialize the cart on page load
+        loadCart();
+    </script>
+</body>
+</html>

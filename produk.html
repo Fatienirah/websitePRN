@@ -42,6 +42,7 @@
         nav a:hover {
             background-color: #87CEEB; /* Light Blue */
             color: #003366; /* Dark Navy */
+            font-weight: bold;
         }
 
         .content {
@@ -70,7 +71,7 @@
         }
 
         .product-item img {
-            max-width: 100%;
+            max-width: 200px;
             height: auto;
             border-radius: 5px;
         }
@@ -90,43 +91,32 @@
             font-weight: bold;
         }
 
-        .product-item input[type="number"] {
-            width: 60px;
-            margin-top: 10px;
-            padding: 5px;
-        }
-
-        .product-item button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #004C99; /* Deep Blue */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .product-item button:hover {
-            background-color: #87CEEB; /* Light Blue Hover */
-        }
-
-        .checkout-section {
-            margin-top: 40px;
+        .booking-button, .whatsapp-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
             text-align: center;
-        }
-
-        .checkout-section button {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: #004C99; /* Deep Blue */
             color: white;
-            border: none;
+            text-decoration: none;
             border-radius: 5px;
-            cursor: pointer;
+            font-weight: bold;
         }
 
-        .checkout-section button:hover {
-            background-color: #87CEEB; /* Light Blue Hover */
+        .booking-button {
+            background-color: #003366; /* Dark Blue */
+        }
+
+        .booking-button:hover {
+            background-color: #004C99;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366; /* WhatsApp Green */
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1DA851;
         }
 
         footer {
@@ -140,14 +130,15 @@
 <body>
     <!-- Header -->
     <header>
-        <img src="D:\SEM INTERN PBU\websitePRN\logo.png" alt="Logo Pondok Rawatan Nusantara">
+        <img src="logo.png" alt="Logo Pondok Rawatan Nusantara">
         <h1>Produk Kami</h1>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navigation Panel -->
     <nav>
         <a href="homepage.html">Laman Utama</a>
-        <a href="servis.html">Servis Rawatan</a>
+        <a href="servis-perempuan.html">Rawatan Perempuan</a>
+        <a href="servis-lelaki.html">Rawatan Lelaki</a>
         <a href="produk.html">Produk</a>
         <a href="info.html">Informasi</a>
         <a href="contact.html">Hubungi Kami</a>
@@ -159,36 +150,44 @@
 
         <!-- Product Grid -->
         <div class="product-grid">
-            <!-- Example Product 1 -->
+            <!-- Product 1 -->
             <div class="product-item">
-                <img src="D:\SEM INTERN PBU\websitePRN\product1.jpg" alt="Minyak Herba">
-                <h3>Minyak Herba</h3>
-                <p>Minyak herba tradisional untuk urutan dan kesihatan fizikal.</p>
+                <img src="papan-guasa.png" alt="Papan Guasa Thobib">
+                <h3>Papan Guasa Thobib</h3>
+                <p>Papan Guasa Tanduk Kerbau untuk urutan dan kesihatan fizikal.</p>
                 <p class="price">RM20.00</p>
-                <label for="quantity1">Kuantiti:</label>
-                <input type="number" id="quantity1" name="quantity1" min="1" value="1">
-                <button onclick="addToCart('Minyak Herba', 20, document.getElementById('quantity1').value)">Tambah ke Troli</button>
+   
+                <!-- WhatsApp Booking Button -->
+                <a href="https://bit.ly/3PR63q5" target="_blank" class="whatsapp-button">
+                    Tempah melalui WhatsApp
+                </a>
             </div>
 
-            <!-- Example Product 2 -->
+            <!-- Product 2 -->
             <div class="product-item">
-                <img src="D:\SEM INTERN PBU\websitePRN\product2.jpg" alt="Teh Herba">
-                <h3>Teh Herba</h3>
-                <p>Teh herba untuk kesihatan dalaman dan peredaran darah.</p>
-                <p class="price">RM15.00</p>
-                <label for="quantity2">Kuantiti:</label>
-                <input type="number" id="quantity2" name="quantity2" min="1" value="1">
-                <button onclick="addToCart('Teh Herba', 15, document.getElementById('quantity2').value)">Tambah ke Troli</button>
+                <img src="minyak-2.jpg" alt="Minyak Aromaterapi">
+                <h3>Minyak Aromaterapi Thobib</h3>
+                <p>Minyak Aromaterapi untuk menghilangkan kebas dan sakit saraf.</p>
+                <p class="price">RM30.00</p>
+
+                <!-- WhatsApp Booking Button -->
+                <a href="https://bit.ly/3PR63q5" target="_blank" class="whatsapp-button">
+                    Tempah melalui WhatsApp
+                </a>
             </div>
 
-            <!-- Add more products here -->
-        </div>
+            <!-- Product 3 -->
+            <div class="product-item">
+                <img src="gummy.jpg" alt="Ceelia Pastil">
+                <h3>Ceelia Pastil</h3>
+                <p>Gummy yang mengandungi campuran herba daripada Quercus Infectoria, Labisia Pumila, Pueraria Montana, Param, dan Polyneura.</p>
+                <p class="price">RM40.00</p>
 
-        <!-- Checkout Section -->
-        <div class="checkout-section">
-            <h3>Troli Anda</h3>
-            <p id="cart-details">Tiada item dalam troli.</p>
-            <button onclick="checkout()">Checkout</button>
+                <!-- WhatsApp Booking Button -->
+                <a href="https://bit.ly/3PR63q5" target="_blank" class="whatsapp-button">
+                    Tempah melalui WhatsApp
+                </a>
+            </div>
         </div>
     </div>
 
@@ -196,32 +195,5 @@
     <footer>
         &copy; 2025 Pondok Rawatan Nusantara. All rights reserved.
     </footer>
-
-    <script>
-        const cart = [];
-
-        function addToCart(product, price, quantity) {
-            cart.push({ product, price, quantity: parseInt(quantity) });
-            updateCartDetails();
-        }
-
-        function updateCartDetails() {
-            const cartDetails = cart.map(
-                item => `${item.product} (RM${item.price} x ${item.quantity})`
-            ).join(', ');
-            document.getElementById('cart-details').textContent = cartDetails || 'Tiada item dalam troli.';
-        }
-
-        function checkout() {
-            if (cart.length === 0) {
-                alert('Troli anda kosong!');
-            } else {
-                alert('Pembelian berjaya! Terima kasih.');
-                // Clear the cart after checkout
-                cart.length = 0;
-                updateCartDetails();
-            }
-        }
-    </script>
 </body>
 </html>

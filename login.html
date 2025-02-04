@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Pondok Rawatan Nusantara</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F8FB; /* Light background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #0066CC; /* Deep Blue Border */
+        }
+
+        h1 {
+            color: #0066CC; /* Deep Blue */
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: #003366; /* Dark Navy */
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #B0C4DE;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #0066CC;
+        }
+
+        button {
+            background-color: #0066CC;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #87CEEB;
+            color: #003366;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password a {
+            color: #0066CC;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #003366;
+        }
+
+        .signup-link a {
+            color: #0066CC;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Log Masuk</h1>
+        <p>Selamat datang kembali! Sila log masuk ke akaun anda.</p>
+        <form action="login_processing.php" method="POST">
+            <label for="email">Emel</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan Alamat Emel" required>
+
+            <label for="password">Kata Laluan</label>
+            <input type="password" id="password" name="password" placeholder="Masukkan Kata Laluan" required>
+
+            <button type="submit">Log Masuk</button>
+        </form>
+        <div class="forgot-password">
+            <a href="forgot-password.html">Lupa Kata Laluan?</a>
+        </div>
+        <div class="signup-link">
+            Belum ada akaun? <a href="signup.html">Daftar di sini</a>.
+        </div>
+    </div>
+</body>
+</html>

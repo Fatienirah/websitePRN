@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Pondok Rawatan Nusantara</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAF6FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #004C99;
+        }
+
+        h1 {
+            color: #004C99;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #B0C4DE;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #004C99;
+        }
+
+        button {
+            background-color: #004C99;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #87CEEB;
+            color: #003366;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #004C99;
+        }
+
+        .login-link a {
+            color: #004C99;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Daftar Akaun</h1>
+        <p>Sila isi maklumat di bawah untuk mendaftar.</p>
+        <form id="signupForm" action="signup.php" method="POST">
+            <label for="fullName">Nama Penuh</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Masukkan Nama Penuh dalam Huruf Besar" required>
+
+            <label for="email">Emel</label>
+            <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
+
+            <label for="phone">Nombor Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="012-3456789" required>
+
+            <label for="password">Kata Laluan</label>
+            <input type="password" id="password" name="password" placeholder="Masukkan Kata Laluan" required>
+
+            <label for="confirmPassword">Sahkan Kata Laluan</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Sahkan Kata Laluan" required>
+
+            <button type="submit">Daftar</button>
+        </form>
+        <div class="login-link">
+            Sudah ada akaun? <a href="login.html">Log Masuk di sini</a>.
+        </div>
+    </div>
+</body>
+
+</html>
+
+
